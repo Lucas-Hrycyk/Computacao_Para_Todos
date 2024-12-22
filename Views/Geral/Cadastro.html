@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../../Styles/Geral/Cadastro.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="border border-black rounded-1">
+        <div class="container">
+          <div class="row justify-content-center">
+            <span class="text-black d-grid gap-2 d-md-flex justify-content-md-center border border-black">Cadastre-se</span>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-11">
+                  <div class="d-grid align-items-center">
+                    <label for="Nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="Nome" placeholder="Digite seu nome" required>
+                    <label for="Cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="Cidade" placeholder="Digite sua cidade" required>
+                    <label for="Email" class="form-label">E-Mail</label>
+                    <input type="email" class="form-control" id="Email" placeholder="nome@email.com" required>
+                    <label for="Telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="Telefone" placeholder="(00)0000-0000" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
+          <button class="btn btn-success">Enviar</button>
+          <button class="btn btn-danger" onclick="fecharPopupForm()">Sair</button>
+        </div>
+      </div>
+</body>
+</html>

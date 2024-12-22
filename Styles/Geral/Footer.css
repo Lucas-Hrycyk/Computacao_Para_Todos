@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+}
+
+#LadoEsquerdo{
+    width: 80%;
+    float: left;
+}
+
+#LadoEsquerdo span{
+    display: block;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+#LadoEsquerdo p{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#LadoDireito{
+    float: right;
+    width: 20%;
+}
+
+
+#Rodape{
+    clear: both;
+    border-top: 1px solid white;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 10px;
+}
