@@ -1,0 +1,11 @@
+* {
+    overflow-x: hidden;
+    scrollbar-width: none;
+    vertical-align: middle;
+    scrollbar-width: none;
+}
+
+header{
+    width: 100%;
+    z-index: 500;
+}

@@ -34,22 +34,8 @@ article{
     letter-spacing: -1px;
 }
 
-#cardComentarios {
-    overflow-y: auto;
-    max-height: 70vh;
-}
-
 .desfocarFundo {
     filter: blur(5px);  
-}
-
-#Form {
-    background-color: white;
-    display: none;
-    position: relative;
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 2%;
 }
 
 #LinkImagem {
