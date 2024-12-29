@@ -1,41 +1,105 @@
 // Defina os vídeos para cada tela
 const videosData = {
-    uber: [
+    CarrosAplicativo: [
         {
             src: "https://www.youtube.com/embed/nyGLkqh8yHg",
-            title: "Vídeo 1",
-            description: "Como Configurar e chamar Uber"
+            description: "Como chamar um carro pela Uber"
         },
+
+        {
+            src: "https://www.youtube.com/embed/gzUPY3Br43o",
+            description: "Como chamar um carro pela 99 POP"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/LjqqXKeCRSk",
+            description: "Como chamar um carro pelo InDrive"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/Ay9uANsAcmk",
+            description: "Possiveis respostas pela dificuldade em conseguir chamar carro de App"
+        },
+
         {
             src: "https://www.youtube.com/embed/LpmeClJ6UCI",
-            title: "Vídeo 2",
-            description: "Golpes de motoristas falsos da Uber no Aeroporto"
-        }
+            description: "Possivel golpe realizado por falsos motoristas"
+        },
+        
     ],
-    about: [
+    DicasEssenciais: [
+
         {
-            src: "https://www.youtube.com/embed/anotherVideo",
-            title: "Vídeo 3",
-            description: "Tutorial sobre segurança"
-        }
+            src: "https://www.youtube.com/embed/nphKpNFHQd8",
+            description: "Como proteger seu computador"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/UQwxreDeKYQ",
+            description: "Como proteger sua rede Wi-Fi"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/aceN5FYs2vI",
+            description: "Como atualizar seu computador"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/mj1QMhO6KWU",
+            description: "Riscos das redes públicas"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/LSUwfF9lvgw",
+            description: "O que é Virus de computador"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/vRgCuaE023g",
+            description: "O que é Antivirus"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/ZOZMhbwAI-M",
+            description: "Como Indetificar E-Mail falso"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/LjrN7urIORQ",
+            description: "Como Indetificar site falso"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/9MFLzOow2NA",
+            description: "Como criar senhas fortes e facil de memorizar"
+        },
     ],
-    contact: [
+    
+    ProtecoesExtras: [
         {
-            src: "https://www.youtube.com/embed/exampleVideo",
-            title: "Vídeo 4",
-            description: "Entre em contato conosco"
-        }
+            src: "https://www.youtube.com/embed/OK2u0WEKJCg",
+            description: "O que é Backup?"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/HLiCQmB4fUE",
+            description: "Como fazer Backup usando Penrive ou Hd Externo?"
+        },
+
+        {
+            src: "https://www.youtube.com/embed/yNNIrXlssJo",
+            description: "Como fazer Backup em Nuvem"
+        },
+
     ]
 };
 
-// Função para obter o nome da página atual
 function getPageName() {
     const path = window.location.pathname;
-    const page = path.split("/").pop(); // Obtém o último segmento da URL
-    return page.split(".")[0]; // Remove a extensão, como ".html"
+    const page = path.split("/").pop();
+    return page.split(".")[0];
 }
 
-// Função para carregar vídeos com base na página
 function loadVideos(containerId) {
     const pageName = getPageName();
     const videos = videosData[pageName];
