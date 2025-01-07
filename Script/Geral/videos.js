@@ -30,6 +30,11 @@ const videosData = {
         },
 
         {
+            src: "https://www.youtube.com/embed/U0WaNHJtP8w",
+            description: "Como utilizar a carteira virtual (Apple Pay)"
+        },
+
+        {
             src: "https://www.youtube.com/embed/xQOHrGDzVuU",
             description: "Como realizar um PIX"
         },
