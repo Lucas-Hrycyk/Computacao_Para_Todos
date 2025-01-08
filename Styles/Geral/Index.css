@@ -38,6 +38,24 @@ article{
     filter: blur(5px);  
 }
 
+#Contato {
+    display: block;
+    position: relative;
+}
+
+#Comentarios{
+    overflow-y: auto;
+    height: 35rem;
+    width: 90%;
+}
+
+#Form {
+    display: none;
+    background-color: white;
+    border: 1px solid black;
+    width: 35%;
+}
+
 #LinkImagem {
     text-decoration: none;
 }
