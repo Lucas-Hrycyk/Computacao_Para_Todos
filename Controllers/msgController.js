@@ -1,5 +1,5 @@
 const { DATE } = require('sequelize');
-const ModelMsg = require('../Models/MsgModels');
+const ModelMsg = require('/Computacao_Para_Todos/Models/MsgModels');
 
 module.exports = {
     async List(req, res) {

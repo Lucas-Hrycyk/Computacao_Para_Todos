@@ -8,11 +8,10 @@ route.get('/', (req, res) => {
 });
 
 //#region Mensagens
-const controllerMensage = require('../Controllers/msgController')
+const controllerMensage = require('/Computacao_Para_Todos/Controllers/msgController')
 
 route.get('/ListMensagens', controllerMensage.List);
 route.post('/CreateMensagens', controllerMensage.Create);
-route.post('/DeleteMensagens', controllerMensage.Delete);
 route.get('/getOneMensagens', controllerMensage.getOne)
 
 //#endregion

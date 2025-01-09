@@ -1,6 +1,5 @@
-const { Sequelize, DataTypes, Model, NOW } = require('sequelize');
-const database = require('../Config/dataBase');
-const schema = '';
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const database = require('/Computacao_Para_Todos/Config/dataBase');
 
 class Mensagens extends Model {}
 
@@ -12,37 +11,27 @@ Mensagens.init(
             allowNull: false,
             primaryKey: true,
         },
-
         UsuarioNome: {
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-
         Mensagem: {
             type: DataTypes.STRING(500),
             allowNull: false,
-
         },
-
         DataCriacao: {
             type: DataTypes.DATE,
             allowNull: false,
-            defaultValue: DataTypes.NOW,
+            defaultValue: Sequelize.NOW,
         },
-
     },
-
     {
-        sequelize: database, 
+        sequelize: database,
         modelName: 'Mensagem',
-        tableName: 'Mensagens', 
-        schema: schema, 
-        timestamps: false 
-    },
-
+        tableName: 'Mensagens',
+        schema: '',
+        timestamps: false,
+    }
 );
-
-Usuarios.hasMany(Mensagens, { foreignKey: 'UsuarioId' });
-Mensagens.belongsTo(Usuarios, { foreignKey: 'UsuarioId' });
 
 module.exports = Mensagens;
