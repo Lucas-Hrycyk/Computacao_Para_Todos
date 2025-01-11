@@ -1,10 +1,10 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
 const route = express.Router();
 
-
-
 route.get('/', (req, res) => {
-    res.send('Servidor Rodando!');
+    // Serve o index.html da pasta public
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 //#region Mensagens
