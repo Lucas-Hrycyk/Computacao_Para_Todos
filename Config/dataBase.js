@@ -1,34 +1,32 @@
 const { Sequelize } = require('sequelize');
-const CryptoJS = require('crypto-js');
 require('dotenv').config();
 
-const secretKey = process.env.SECRET_KEY;
-const encryptedUsername = process.env.DB_USERNAME;
-const encryptedPassword = process.env.DB_PASSWORD;
+// Definindo as credenciais de forma direta
+module.exports = {
+  username: 'lucas_hrycyk',
+  password: 'y4tbBVtlL0WMGeqArw0O3X5yvz7ucDSO',
+  database: 'computacao_todos_db',
+  host: 'dpg-cu14u952ng1s73e6lqgg-a.oregon-postgres.render.com',
+  port: 5432,
+  dialect: 'postgres'
+};
 
-const decryptedUsername = CryptoJS.AES.decrypt(encryptedUsername, secretKey).toString(CryptoJS.enc.Utf8);
-const decryptedPassword = CryptoJS.AES.decrypt(encryptedPassword, secretKey).toString(CryptoJS.enc.Utf8);
-
-const database = new Sequelize('computacaotodo_db', decryptedUsername, decryptedPassword, {
-    dialect: 'postgres',
-    host: 'dpg-ctvvn123esus73ad6ea0-a.oregon-postgres.render.com',
-    port: 5432, 
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false,
-        },
-    },
-    logging: false,
+const database = new Sequelize({
+  username: 'lucas_hrycyk',
+  password: 'y4tbBVtlL0WMGeqArw0O3X5yvz7ucDSO',
+  database: 'computacao_todos_db',
+  host: 'dpg-cu14u952ng1s73e6lqgg-a.oregon-postgres.render.com',
+  port: 5432,
+  dialect: 'postgres'
 });
 
 database.authenticate()
-    .then(() => {
-        console.log('Conexão estabelecida com sucesso.');
-    })
-    .catch(err => {
-        console.error('Não foi possível conectar ao banco de dados:', err);
-    });
+  .then(() => {
+    console.log('Conexão estabelecida com sucesso.');
+  })
+  .catch(err => {
+    console.error('Não foi possível conectar ao banco de dados:', err);
+  });
 
 database.sync();
 

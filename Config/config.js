@@ -1,6 +1,6 @@
 const express = require('express');
 const DB = require('./dataBase');
-const route = require('/Computacao_Para_Todos/Routes/Routes');
+const route = require('../Routes/Routes');
 
 const app = express();
 app.use(express.json());

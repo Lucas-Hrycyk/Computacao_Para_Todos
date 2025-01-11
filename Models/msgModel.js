@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
-const database = require('/Computacao_Para_Todos/Config/dataBase');
+const database = require('../Config/dataBase');
 
 class Mensagens extends Model {}
 
