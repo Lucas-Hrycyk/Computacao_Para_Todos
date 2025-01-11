@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path'); 
 const DB = require('./dataBase');
 const route = require('../Routes/Routes');
 
@@ -7,6 +8,12 @@ app.use(express.json());
 app.use(route);
 
 const PORT = 4300;
+
+app.use(express.static(path.join(__dirname, '../'))); 
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
 
 DB.sync({ alter: true })
     .then(() => {
