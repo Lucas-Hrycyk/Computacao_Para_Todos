@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const path = require('path'); 
 const DB = require('./dataBase');
 const route = require('../Routes/Routes');
 
@@ -9,14 +9,15 @@ app.use(route);
 
 const PORT = 4300;
 
-// Servindo arquivos estáticos da raiz
-app.use(express.static(path.join(__dirname, '../')));
+// Servir os arquivos estáticos da pasta 'public'
+app.use(express.static(path.join(__dirname, '../public'))); 
 
-// Rota para qualquer outra requisição que manda o index.html
+// Rota para garantir que o index.html seja enviado em todas as outras requisições
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// Sincronizar o banco de dados e iniciar o servidor
 DB.sync({ alter: true })
     .then(() => {
         console.log('Banco de dados sincronizados com sucesso.');
