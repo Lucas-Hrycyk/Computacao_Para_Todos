@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  fetch('../Views/Geral/MenuPrincipal.html')
+  fetch('Views/Geral/MenuPrincipal.html')
     .then(response => response.text())
     .then(data => {
       var menuElement = document.getElementById('menu');
