@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.log('Erro ao carregar MenuPrincipal.html:', error));
 
-  fetch('../Views/Geral/Footer.html')
+  fetch('Views/Geral/Footer.html')
     .then(response => response.text())
     .then(data => {
       var footerElement = document.getElementById('footer');
