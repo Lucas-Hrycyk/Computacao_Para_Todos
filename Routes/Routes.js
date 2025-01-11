@@ -4,7 +4,7 @@ const route = express.Router();
 
 route.get('/', (req, res) => {
     // Serve o index.html da pasta public
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 //#region Mensagens
