@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     menu.classList.toggle('hidden');
   });
 
-  fetch('/Computacao_Para_Todos/Views/Geral/MenuPrincipal.html')
+  fetch('/Computacao_Para_Todos/public/Views/Geral/MenuPrincipal.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('menu').innerHTML = data;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-  fetch('/Computacao_Para_Todos/Views/Geral/Footer.html')
+  fetch('/Computacao_Para_Todos/public/Views/Geral/Footer.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer').innerHTML = data;
