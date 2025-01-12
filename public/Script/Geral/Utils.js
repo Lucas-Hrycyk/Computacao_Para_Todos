@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  fetch('../../Views/Geral/MenuPrincipal.html')
+  fetch('/Computacao_Para_Todos/public/Views/Geral/MenuPrincipal.html')
     .then(response => response.text())
     .then(data => {
       var menuElement = document.getElementById('menu');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.log('Erro ao carregar MenuPrincipal.html:', error));
 
-  fetch('../../Views/Geral/Footer.html')
+  fetch('/Computacao_Para_Todos/public/Views/Geral/Footer.html')
     .then(response => response.text())
     .then(data => {
       var footerElement = document.getElementById('footer');
