@@ -187,21 +187,23 @@
                       <button class="btn btn-primary fs-6 m-2" onclick="abrirPopupForm()">Enviar Mensagem</button>
                     </div>
                     <div id="FormContainer" class="d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle" style="width: 50%; max-width: 600px;">
-                      <div id="Form" class="w-100 p-3">
-                        <div>
-                          <span class="text-black d-grid gap-2 justify-content-md-center">Envie Sua Mensagem</span>
+                      <form action="/CreateMensagens" method="post">
+                        <div id="Form" class="w-100 p-3">
+                          <div>
+                            <span class="text-black d-grid gap-2 justify-content-md-center">Envie Sua Mensagem</span>
+                          </div>
+                          <div class="mt-3">
+                            <p class="text-black">Nome</p>
+                            <input type="text" placeholder="Digite Seu Nome" class="form-control"/>
+                            <p class="text-black mt-3">Mensagem</p>
+                            <textarea class="form-control"></textarea>
+                          </div>
+                          <div class="mt-3 d-flex justify-content-center">
+                            <button type="button" class="btn btn-outline-success me-2" onclick="enviarMensagem()">Enviar</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="fecharPopupForm()">Cancelar</button>
+                          </div>                        
                         </div>
-                        <div class="mt-3">
-                          <p class="text-black">Nome</p>
-                          <input type="text" placeholder="Digite Seu Nome" class="form-control"/>
-                          <p class="text-black mt-3">Mensagem</p>
-                          <textarea class="form-control"></textarea>
-                        </div>
-                        <div class="mt-3 d-flex justify-content-center">
-                          <button type="button" class="btn btn-outline-success me-2" onclick="enviarMensagem()">Enviar</button>
-                          <button type="button" class="btn btn-outline-danger" onclick="fecharPopupForm()">Cancelar</button>
-                        </div>                        
-                      </div>
+                      </form>
                     </div>
                   </div>
                 </section>
