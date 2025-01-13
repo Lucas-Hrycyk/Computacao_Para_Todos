@@ -14,4 +14,10 @@ route.get('/ListMensagens', controllerMensage.List);
 route.post('/CreateMensagens', controllerMensage.Create);
 route.get('/getOneMensagens', controllerMensage.getOne)
 
+const rspController = require('../Controllers/rspController.js')
+
+route.get('/ListResposta', rspController.List);
+route.post('/CreateResposta', rspController.Create)
+route.get('/getOneResposta', rspController.getOne)
+
 module.exports = route;
