@@ -1,4 +1,4 @@
-const Mensagens = require('../Models/Mensagens'); // Importa a model correta
+const Mensagens = require('../Models/msgModel'); // Importa a model correta
 
 module.exports = {
   // Lista todas as mensagens
