@@ -1,20 +1,18 @@
-const Mensagens = require('../Models/msgModel'); // Importa a model correta
+const Mensagens = require('../Models/msgModel');
 
 module.exports = {
-  // Lista todas as mensagens
   async List(req, res) {
     try {
-      const mensagens = await Mensagens.findAll(); // Busca todas as mensagens
-      return res.json(mensagens); // Retorna as mensagens em JSON
+      const mensagens = await Mensagens.findAll();
+      return res.json(mensagens);
     } catch (erro) {
       console.error('Erro ao listar mensagens:', erro);
       return res.status(500).json({ error: 'Erro ao listar mensagens.' });
     }
   },
 
-  // Cria uma nova mensagem
   async Create(req, res) {
-    const { UsuarioNome, Mensagem } = req.body; // Captura os dados do corpo da requisição
+    const { UsuarioNome, Mensagem } = req.body;
 
     if (!UsuarioNome || !Mensagem) {
       return res.status(400).json({ error: 'Nome e mensagem são obrigatórios.' });
@@ -25,7 +23,7 @@ module.exports = {
         UsuarioNome,
         Mensagem,
         DataCriacao: new Date(),
-      }); // Cria uma nova mensagem no banco
+      });
       return res.status(201).json(novaMensagem);
     } catch (erro) {
       console.error('Erro ao criar nova mensagem:', erro);
@@ -33,22 +31,21 @@ module.exports = {
     }
   },
 
-  // Atualiza uma mensagem existente
   async Update(req, res) {
-    const { MsgId, Mensagem } = req.body; // Captura os dados da requisição
+    const { MsgId, Mensagem } = req.body; 
 
     if (!MsgId || !Mensagem) {
       return res.status(400).json({ error: 'ID e mensagem são obrigatórios.' });
     }
 
     try {
-      const mensagem = await Mensagens.findByPk(MsgId); // Busca a mensagem pelo ID
+      const mensagem = await Mensagens.findByPk(MsgId);
 
       if (mensagem) {
-        mensagem.Mensagem = Mensagem; // Atualiza o campo Mensagem
-        mensagem.DataCriacao = new Date(); // Atualiza a data de criação
-        await mensagem.save(); // Salva as alterações no banco
-        return res.json(mensagem); // Retorna a mensagem atualizada
+        mensagem.Mensagem = Mensagem;
+        mensagem.DataCriacao = new Date();
+        await mensagem.save();
+        return res.json(mensagem);
       } else {
         return res.status(404).json({ error: 'Mensagem não encontrada.' });
       }
@@ -58,19 +55,18 @@ module.exports = {
     }
   },
 
-  // Retorna uma mensagem específica pelo ID
   async getOne(req, res) {
-    const { MsgId } = req.body; // Captura o ID da requisição
+    const { MsgId } = req.body; 
 
     if (!MsgId) {
       return res.status(400).json({ error: 'ID é obrigatório.' });
     }
 
     try {
-      const mensagem = await Mensagens.findByPk(MsgId); // Busca a mensagem pelo ID
+      const mensagem = await Mensagens.findByPk(MsgId);
 
       if (mensagem) {
-        return res.json(mensagem); // Retorna a mensagem encontrada
+        return res.json(mensagem);
       } else {
         return res.status(404).json({ error: 'Mensagem não encontrada.' });
       }
@@ -80,19 +76,18 @@ module.exports = {
     }
   },
 
-  // Deleta uma mensagem pelo ID
   async Delete(req, res) {
-    const { MsgId } = req.body; // Captura o ID da requisição
+    const { MsgId } = req.body;
 
     if (!MsgId) {
       return res.status(400).json({ error: 'ID é obrigatório.' });
     }
 
     try {
-      const mensagem = await Mensagens.findByPk(MsgId); // Busca a mensagem pelo ID
+      const mensagem = await Mensagens.findByPk(MsgId);
 
       if (mensagem) {
-        await mensagem.destroy(); // Deleta a mensagem
+        await mensagem.destroy();
         return res.json({ message: 'Mensagem deletada com sucesso.' });
       } else {
         return res.status(404).json({ error: 'Mensagem não encontrada.' });

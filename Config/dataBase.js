@@ -1,7 +1,6 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Definindo as credenciais e configurando SSL
 module.exports = {
   username: 'lucas_hrycyk',
   password: 'y4tbBVtlL0WMGeqArw0O3X5yvz7ucDSO',
@@ -12,7 +11,7 @@ module.exports = {
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false // Necessário para evitar problemas com certificados não verificados
+      rejectUnauthorized: false
     }
   }
 };
@@ -27,7 +26,7 @@ const database = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false // Necessário para aceitar certificados autoassinados
+      rejectUnauthorized: false
     }
   }
 });
