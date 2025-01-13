@@ -1,3 +1,4 @@
+// Função para abrir o formulário de mensagem
 function abrirPopupForm() {
   var mostrarForm = document.getElementById('Form');
   var comentarios = document.getElementById("Comentarios");
@@ -26,6 +27,32 @@ function fecharPopupForm() {
   } else {
     console.error("Um ou mais elementos não foram encontrados.");
   }
+}
+
+function exibirMensagens(mensagens) {
+  const cardComentarios = document.getElementById('cardComentarios');
+  cardComentarios.innerHTML = '';
+
+  mensagens.forEach(mensagem => {
+    const card = document.createElement('div');
+    card.classList.add('card', 'text-star', 'mb-3');
+
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="text-black">${mensagem.UsuarioNome}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-text text-black">${mensagem.Mensagem}</p>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <span class="d-block text-black col text-end">${new Date(mensagem.DataCriacao).toLocaleDateString()}</span>
+        </div>
+      </div>
+    `;
+
+    cardComentarios.appendChild(card);
+  });
 }
 
 function enviarMensagem(event) {
@@ -58,6 +85,15 @@ function enviarMensagem(event) {
     console.log('Mensagem enviada com sucesso:', data);
     alert("Mensagem enviada com sucesso!");
     fecharPopupForm();
+
+    fetch('/ListMensagens')
+      .then(response => response.json())
+      .then(mensagens => {
+        exibirMensagens(mensagens);
+      })
+      .catch(error => {
+        console.error('Erro ao carregar mensagens:', error);
+      });
   })
   .catch((error) => {
     console.error('Erro ao enviar a mensagem:', error);
@@ -66,3 +102,14 @@ function enviarMensagem(event) {
 }
 
 document.getElementById("formEnviarMensagem").addEventListener("submit", enviarMensagem);
+
+window.onload = function() {
+  fetch('/ListMensagens')
+    .then(response => response.json())
+    .then(mensagens => {
+      exibirMensagens(mensagens);
+    })
+    .catch(error => {
+      console.error('Erro ao carregar mensagens:', error);
+    });
+};
