@@ -116,7 +116,6 @@
                 </section>
                 <section id="Contato" class="vh-100 pt-5">
                   <div class="m-5">
-                      <!-- Comentários -->
                       <div id="Comentarios" class="position-relative border border-gray overflow-auto">
                           <div class="container">
                               <div class="row justify-content-center">
@@ -126,12 +125,10 @@
                           </div>
                       </div>
 
-                      <!-- Botão para abrir o formulário de mensagem -->
                       <div class="position-absolute bottom-0 start-50 translate-middle-x">
                           <button class="btn btn-primary fs-6 m-2" onclick="abrirPopupForm()">Enviar Mensagem</button>
                       </div>
 
-                      <!-- Formulário de envio de mensagem -->
                       <div id="FormContainer" class="d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle" style="width: 50%; max-width: 600px;">
                           <form id="formEnviarMensagem">
                               <div id="Form" class="w-100 p-3">
@@ -151,6 +148,18 @@
                               </div>
                           </form>                      
                       </div>
+
+                      <div id="popupHistorico" class="popup d-none position-fixed top-50 start-50 translate-middle bg-white border rounded p-3">
+                        <div class="popup-header d-flex justify-content-between align-items-center">
+                          <h5>Histórico de Respostas</h5>
+                          <button class="btn btn-close" onclick="fecharPopupHistorico()"></button>
+                        </div>
+                        <div id="mensagemComentario" class="mb-3"></div>
+                        <div id="respostas" class="overflow-auto mb-3" style="max-height: 200px;"></div>
+                        <textarea id="novaResposta" class="form-control mb-2" placeholder="Digite sua resposta"></textarea>
+                        <button class="btn btn-primary w-100" onclick="enviarResposta()">Enviar</button>
+                      </div>
+                      
                   </div>
               </section>
             </article>
