@@ -1,4 +1,3 @@
-// Função para abrir o formulário de mensagem
 function abrirPopupForm() {
   const mostrarForm = document.getElementById('Form');
   const comentarios = document.getElementById("Comentarios");

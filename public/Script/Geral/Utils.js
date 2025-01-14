@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (menuElement) {
         menuElement.innerHTML = data;
 
-        // Verifique se o toggleNavButtonPhone existe antes de adicionar o evento
         var toggleNavButtonPhone = document.getElementById('toggleNavButtonPhone');
         if (toggleNavButtonPhone) {
           toggleNavButtonPhone.addEventListener('click', function() {
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        // Verifique se o FecharMenu existe antes de adicionar o evento
         var fecharMenuButton = document.getElementById('FecharMenu');
         if (fecharMenuButton) {
           fecharMenuButton.addEventListener('click', function() {
