@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     menuDiv.classList.add('hidden');
   }
   
-  // Verifique se o toggleNavButton existe antes de adicionar o evento
   var toggleNavButton = document.getElementById('toggleNavButton');
   if (toggleNavButton) {
     toggleNavButton.addEventListener('click', function() {
