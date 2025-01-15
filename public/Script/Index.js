@@ -46,7 +46,6 @@ function exibirMensagens(mensagens) {
       <div class="card-footer">
         <div class="row">
           <span class="d-block text-black col text-end">${new Date(mensagem.DataCriacao).toLocaleDateString()}</span>
-          <button class="btn btn-secondary btn-sm col-auto" onclick="abrirHistorico(${mensagem.id})">Histórico</button>
         </div>
       </div>
     `;
