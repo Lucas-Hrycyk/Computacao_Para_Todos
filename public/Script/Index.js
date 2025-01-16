@@ -38,20 +38,48 @@ function exibirMensagens(mensagens) {
 
     card.innerHTML = `
       <div class="card-header">
-        <span class="text-black">${mensagem.UsuarioNome}</span>
+        <span class="text-black">${mensagem.name}</span>
       </div>
       <div class="card-body">
-        <p class="card-text text-black">${mensagem.Mensagem}</p>
+        <p class="card-text text-black">${mensagem.message}</p>
       </div>
       <div class="card-footer">
         <div class="row">
-          <span class="d-block text-black col text-end">${new Date(mensagem.DataCriacao).toLocaleDateString()}</span>
+          <span class="d-block text-black col text-end">${new Date(mensagem.createdAt).toLocaleDateString()}</span>
         </div>
       </div>
     `;
 
     cardComentarios.appendChild(card);
   });
+}
+
+async function enviarMensagem(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById('nome').value;
+  const mensagem = document.getElementById('mensagem').value;
+
+  try {
+    const response = await fetch('/comentarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: nome, message: mensagem }),
+    });
+
+    if (response.ok) {
+      alert('Mensagem enviada com sucesso!');
+      fecharPopupForm();
+
+      const mensagens = await fetch('/ListMensagens').then(res => res.json());
+      exibirMensagens(mensagens);
+    } else {
+      alert('Erro ao enviar mensagem.');
+    }
+  } catch (error) {
+    console.error('Erro ao enviar mensagem:', error);
+    alert('Erro ao enviar mensagem.');
+  }
 }
 
 async function abrirHistorico(comentarioId) {
@@ -67,7 +95,7 @@ async function abrirHistorico(comentarioId) {
       fetch(`/comentarios/${comentarioId}/respostas`).then(res => res.json())
     ]);
 
-    mensagemDiv.innerHTML = `<strong>${mensagemRes.UsuarioNome}:</strong> ${mensagemRes.Mensagem}`;
+    mensagemDiv.innerHTML = `<strong>${mensagemRes.name}:</strong> ${mensagemRes.message}`;
 
     respostasDiv.innerHTML = respostasRes.map(
       resp => `<p><strong>${resp.autor}:</strong> ${resp.mensagem}</p>`
